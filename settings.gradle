@@ -1,0 +1,4 @@
+rootProject.name = 'monitoring-project'
+include 'service'
+include 'monitoring'
+
