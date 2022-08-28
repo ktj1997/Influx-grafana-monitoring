@@ -1,0 +1,4 @@
+server:
+  port: 8080
+kafka:
+  server: ${KAFKA_BOOTSTRAP_SERVER:localhost:9092}

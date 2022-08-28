@@ -32,13 +32,13 @@ public class MonitoringAspect {
       Method method = signature.getMethod();
 
       Monitoring monitoring = method.getAnnotation(Monitoring.class);
-      String topic = KafkaTopicConstant.get(monitoring.topic()).getTopic();
+      String topic = monitoring.topic();
 
       Object response = pjp.proceed();
 
       kafkaService.send(topic, response);
     } catch (Throwable e) {
-      log.error("Cannot Parse Key In Monitoring Annotation");
+      log.error("Cannot Parse Topic In Monitoring Annotation");
       e.printStackTrace();
     }
   }

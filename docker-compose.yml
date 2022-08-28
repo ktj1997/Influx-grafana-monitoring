@@ -1,0 +1,15 @@
+influxdb:
+  image: library/influxdb:latest
+  container_name: influxdb
+  ports:
+    - 8086:8086
+  environment:
+    - DOCKER_INFLUXDB_INIT_USERNAME = user
+    - DOCKER_INFLUXDB_INIT_PASSWORD = user
+    - DOCKER_INFLUXDB_INIT_ORG = sample-organization
+    - DOCKER_INFLUXDB_INIT_BUCKET = sample-bucket
+    - INFLUXDB_HTTP_AUTH_ENABLED=false
+    - INFLUXDB_DB=sample_database
+  volumes:
+    - container/grafana/data:/var/lib/influxdb2
+    - container/grafana/config/config.yml:/etc/influxdb2/config.yml
