@@ -1,6 +1,5 @@
 package com.example.config.aspect;
 
-import com.example.config.kafka.KafkaTopicConstant;
 import com.example.service.KafkaService;
 import java.lang.reflect.Method;
 import lombok.RequiredArgsConstructor;

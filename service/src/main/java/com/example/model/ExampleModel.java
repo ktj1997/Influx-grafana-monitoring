@@ -2,10 +2,13 @@ package com.example.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 @AllArgsConstructor
 public class ExampleModel {
+
   private int successCount;
   private int failCount;
 }

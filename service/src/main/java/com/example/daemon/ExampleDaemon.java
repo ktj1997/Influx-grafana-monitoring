@@ -16,8 +16,6 @@ public class ExampleDaemon {
 
   @Scheduled(fixedDelay = 1L * 1000 * 60)
   public void scheduler() {
-    log.info("Daemon Start");
     exampleService.run();
-    log.info("Daemon End");
   }
 }

@@ -26,7 +26,7 @@ public class KafkaService {
 
       @Override
       public void onSuccess(SendResult<String, String> result) {
-        log.info("Send Topic {} to {} Success", topic, record);
+        log.info("Send {} to Topic {} Success", record, topic);
       }
 
       @Override

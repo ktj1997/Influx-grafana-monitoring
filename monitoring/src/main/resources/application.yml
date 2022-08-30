@@ -2,3 +2,10 @@ server:
   port: 8080
 kafka:
   server: ${KAFKA_BOOTSTRAP_SERVER:localhost:9092}
+spring:
+  influxdb:
+    url: ${INFLUX_DB_URL:http://localhost:8086}
+    username: admin
+    password: admin
+    database: sample_database
+    retention-policy: autogen
