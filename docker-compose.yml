@@ -7,10 +7,12 @@ services:
     ports:
       - "8086:8086"
     environment:
-      INFLUXDB_ADMIN_USER: admin
-      INFLUXDB_ADMIN_PASSWORD: admin
-      INFLUXDB_DB: sample_database
-      INFLUXDB_HTTP_AUTH_ENABLED: true
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: sample_user
+      DOCKER_INFLUXDB_INIT_PASSWORD: 1q2w3e4r!!
+      DOCKER_INFLUXDB_INIT_ORG: Test
+      DOCKER_INFLUXDB_INIT_BUCKET: Test
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: my-super-secret-auth-token
     volumes:
       - ./container/influx/data:/var/lib/influxdb2
     # - container/influx/config/config.yml:/etc/influxdb2/config.yml
