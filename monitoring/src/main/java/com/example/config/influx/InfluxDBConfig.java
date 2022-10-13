@@ -23,6 +23,8 @@ public class InfluxDBConfig {
 
 
 
+
+
   @Bean
   public InfluxDBTemplate<Point> influxDBTemplate(
       final InfluxDBConnectionFactory connectionFactory) {
