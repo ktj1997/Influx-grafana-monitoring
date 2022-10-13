@@ -22,8 +22,7 @@ public class MonitoringListener {
   @KafkaListener(id = "monitoring-consumer", topics = KafkaTopicConstant.EXAMPLE)
   public void ConsumeServiceMonitoringRecord(
       ConsumerRecordMetadata consumerRecordMetadata,
-      ConsumerRecord<String, String> consumerRecord
-  ) {
+      ConsumerRecord<String, String> consumerRecord) {
     Gson gson = new Gson();
 
     String value = consumerRecord.value();

@@ -6,20 +6,13 @@ services:
     container_name: influxdb
     ports:
       - "8086:8086"
-    environment:
-      DOCKER_INFLUXDB_INIT_MODE: setup
-      DOCKER_INFLUXDB_INIT_USERNAME: sample_user
-      DOCKER_INFLUXDB_INIT_PASSWORD: 1q2w3e4r!!
-      DOCKER_INFLUXDB_INIT_ORG: Test
-      DOCKER_INFLUXDB_INIT_BUCKET: Test
-      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: my-super-secret-auth-token
     volumes:
       - ./container/influx/data:/var/lib/influxdb2
     # - container/influx/config/config.yml:/etc/influxdb2/config.yml
   grafana:
     image: grafana/grafana:7.3.0
     ports:
-      - 3000:3000 # Web
+      - "3000:3000" # Web
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin

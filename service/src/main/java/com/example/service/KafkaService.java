@@ -22,17 +22,18 @@ public class KafkaService {
     String json = gson.toJson(record);
 
     ListenableFuture<SendResult<String, String>> sendResult = kafkaTemplate.send(topic, json);
-    sendResult.addCallback(new KafkaSendCallback<String, String>() {
+    sendResult.addCallback(
+        new KafkaSendCallback<String, String>() {
 
-      @Override
-      public void onSuccess(SendResult<String, String> result) {
-        log.info("Send {} to Topic {} Success", record, topic);
-      }
+          @Override
+          public void onSuccess(SendResult<String, String> result) {
+            log.info("Send {} to Topic {} Success", record, topic);
+          }
 
-      @Override
-      public void onFailure(KafkaProducerException ex) {
-        log.error("Error Occurred at Record :{}", ex.getFailedProducerRecord());
-      }
-    });
+          @Override
+          public void onFailure(KafkaProducerException ex) {
+            log.error("Error Occurred at Record :{}", ex.getFailedProducerRecord());
+          }
+        });
   }
 }

@@ -5,7 +5,7 @@ kafka:
 spring:
   influxdb:
     url: ${INFLUX_DB_URL:http://localhost:8086}
-    username: ktj7916
-    password: asd159753!
+    username: admin
+    password: scandium
     database: sample_database
     retention-policy: autogen

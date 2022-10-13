@@ -13,7 +13,6 @@ public class ExampleDaemon {
 
   private final ExampleService exampleService;
 
-
   @Scheduled(fixedDelay = 1L * 1000 * 60)
   public void scheduler() {
     exampleService.run();

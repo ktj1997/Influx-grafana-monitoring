@@ -18,9 +18,7 @@ public class KafkaProducerConfig {
   private String BROKER_URL;
 
   @Bean
-  public KafkaTemplate<String, String> kafkaTemplate(
-      ProducerFactory producerFactory
-  ) {
+  public KafkaTemplate<String, String> kafkaTemplate(ProducerFactory producerFactory) {
     return new KafkaTemplate<>(producerFactory);
   }
 

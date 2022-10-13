@@ -18,11 +18,10 @@ public class KafkaConsumerConfig {
   private String BROKER_URL;
 
   @Bean
-  public ConcurrentKafkaListenerContainerFactory<String, String> concurrentKafkaListenerContainerFactory(
-      ConsumerFactory<String, String> consumerFactory
-  ) {
-    ConcurrentKafkaListenerContainerFactory<String, String> containerFactory
-        = new ConcurrentKafkaListenerContainerFactory<>();
+  public ConcurrentKafkaListenerContainerFactory<String, String>
+      concurrentKafkaListenerContainerFactory(ConsumerFactory<String, String> consumerFactory) {
+    ConcurrentKafkaListenerContainerFactory<String, String> containerFactory =
+        new ConcurrentKafkaListenerContainerFactory<>();
 
     containerFactory.setConsumerFactory(consumerFactory);
     return containerFactory;
@@ -37,6 +36,5 @@ public class KafkaConsumerConfig {
     properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 
     return new DefaultKafkaConsumerFactory<>(properties);
-
   }
 }

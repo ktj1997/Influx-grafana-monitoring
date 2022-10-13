@@ -13,10 +13,6 @@ public class ExampleService {
     int successCount = (int) (Math.random() * 100);
     int failCount = (int) (Math.random() * 100);
 
-    return new ExampleModel(
-        successCount,
-        failCount
-    );
+    return new ExampleModel(successCount, failCount);
   }
-
 }

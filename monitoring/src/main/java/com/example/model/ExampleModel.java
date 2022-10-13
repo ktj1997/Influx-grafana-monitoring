@@ -12,6 +12,7 @@ public class ExampleModel {
 
   @Column(name = "successCount")
   private int successCount;
+
   @Column(name = "failCount")
   private int failCount;
 }

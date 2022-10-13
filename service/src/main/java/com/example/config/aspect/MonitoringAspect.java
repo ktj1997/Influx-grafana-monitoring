@@ -20,9 +20,7 @@ public class MonitoringAspect {
   private final KafkaService kafkaService;
 
   @Pointcut("@annotation(com.example.config.aspect.Monitoring)")
-  private void MonitoringAnnotation() {
-
-  }
+  private void MonitoringAnnotation() {}
 
   @Around("MonitoringAnnotation()")
   public void transferLogToInflux(ProceedingJoinPoint pjp) {
