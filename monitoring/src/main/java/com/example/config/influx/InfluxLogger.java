@@ -13,6 +13,8 @@ public class InfluxLogger {
   private final InfluxDBTemplate influxDBTemplate;
 
   public <T> void log(String measurement, T data) {
+
+
     Point p =
         Point.measurement(measurement)
             .time(System.currentTimeMillis(), TimeUnit.MILLISECONDS)
