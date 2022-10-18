@@ -10,15 +10,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class InfluxLogger {
 
-
-
-
-
   private final InfluxDBTemplate influxDBTemplate;
-
-
-
-
 
   public <T> void log(String measurement, T data) {
 
