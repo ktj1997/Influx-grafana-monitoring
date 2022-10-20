@@ -2,10 +2,10 @@ server:
   port: 8080
 kafka:
   server: ${KAFKA_BOOTSTRAP_SERVER:localhost:9092}
-spring:
-  influxdb:
-    url: ${INFLUX_DB_URL:http://localhost:8086}
-    username: admin
-    password: scandium
-    database: sample_database
-    retention-policy: autogen
+influx:
+  url: ${INFLUXDB_URL:http://localhost:8086}
+  username: ${INFLUXDB_USERNAME:sampleuser}
+  password: ${INFLUX_DB_PASSWORD:samplepassword}
+  token: ${INFLUX_DB_TOKEN:ZSvLnfSw_0f8i7E1e2L3Oc9_UdStXXgRt7grciWHwPGcx-DCMThDXv6FK1QaRIZ-aCEf4CEt4pgQ4WDuM1AtCA==}
+  org: sample
+  bucket: sample

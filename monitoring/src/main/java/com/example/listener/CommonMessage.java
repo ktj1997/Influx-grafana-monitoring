@@ -1,18 +1,14 @@
-package com.example.model;
+package com.example.listener;
 
 import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.ToString;
 
 @Getter
-@ToString
 @AllArgsConstructor
-public class ExampleModel {
+public class CommonMessage {
 
   private String measurement;
-
   private Map<String, String> tags;
-
   private Map<String, Object> fields;
 }

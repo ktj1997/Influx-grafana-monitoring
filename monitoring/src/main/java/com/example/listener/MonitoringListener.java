@@ -1,8 +1,6 @@
 package com.example.listener;
 
-import com.example.config.influx.InfluxMeasurementsConstant;
 import com.example.config.kafka.KafkaTopicConstant;
-import com.example.model.ExampleModel;
 import com.example.service.LogService;
 import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
@@ -26,10 +24,9 @@ public class MonitoringListener {
     Gson gson = new Gson();
 
     String value = consumerRecord.value();
-    ExampleModel model = gson.fromJson(value, ExampleModel.class);
+    CommonMessage message = gson.fromJson(value, CommonMessage.class);
 
-    log.info("Consume {} from Topic {} ", model, consumerRecord.topic());
-
-    logService.transferLogToInfluxDB(InfluxMeasurementsConstant.EXAMPLE_SERVICE, model);
+    logService.transferLogToInfluxDB(
+        message.getMeasurement(), message.getTags(), message.getFields());
   }
 }

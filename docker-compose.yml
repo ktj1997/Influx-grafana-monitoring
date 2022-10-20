@@ -2,18 +2,22 @@ version: '3.9'
 
 services:
   influxdb:
-    image: library/influxdb:2.0
+    image: influxdb:2.1
     container_name: influxdb
     ports:
       - "8086:8086"
     volumes:
       - ./container/influx/data:/var/lib/influxdb2
-    # - container/influx/config/config.yml:/etc/influxdb2/config.yml
+    environment:
+      DOCKER_INFLUXDB_INIT_USERNAME: sampleuser
+      DOCKER_INFLUXDB_INIT_PASSWORD: samplepassword
+      DOCKER_INFLUXDB_INIT_ORG: sample
+      DOCKER_INFLUXDB_INIT_BUCKET: sample
   grafana:
     image: grafana/grafana:7.3.0
     ports:
       - "3000:3000" # Web
-    environment:
+    environment:    # - container/influx/config/config.yml:/etc/influxdb2/config.yml
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
       - GF_SECURITY_DISABLE_GRAVATAR=true
